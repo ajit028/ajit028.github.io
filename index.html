@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="cyan">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ajit Nayak // SOC Analyst & Cybersecurity Specialist</title>
+  <meta name="description" content="Futuristic Cybersecurity & SOC Analyst Portfolio of Ajit Nayak. Hands-on expertise in Microsoft Sentinel, KQL, Wireshark, Active Directory security, and threat hunting.">
+  <meta name="keywords" content="SOC Analyst, Cybersecurity, Ajit Nayak, Microsoft Sentinel, KQL, Wireshark, Network Security, Active Directory, Threat Hunting">
+  <meta name="author" content="Ajit Nayak">
+
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:title" content="Ajit Nayak // SOC Analyst & Cybersecurity Specialist">
+  <meta property="og:description" content="Explore live SIEM telemetry, cloud honeypots, AD hardening labs, and network packet forensics.">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts & Font Awesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Orbitron:wght@600;800;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Core Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Interactive Network Canvas Background -->
+  <canvas id="particle-canvas"></canvas>
+
+  <!-- Audio & Theme Controller Floating HUD -->
+  <div class="hud-controls">
+    <button id="audio-toggle-btn" class="hud-btn" title="Toggle Cyber Audio FX">
+      <i class="fas fa-volume-mute"></i>
+    </button>
+    <div class="theme-picker" title="Switch HUD Matrix Theme">
+      <div class="theme-dot cyan active" data-theme="cyan" title="Cyan Cyberpunk"></div>
+      <div class="theme-dot matrix" data-theme="matrix" title="Matrix Emerald"></div>
+      <div class="theme-dot crimson" data-theme="crimson" title="Crimson Alert"></div>
+      <div class="theme-dot synthwave" data-theme="synthwave" title="Synthwave Neon"></div>
+    </div>
+  </div>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <a href="#hero" class="nav-brand">
+      <i class="fas fa-shield-halved brand-icon"></i>
+      <span>AJIT.NAYAK</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#soc-ops" class="nav-link">SOC OPS</a></li>
+      <li><a href="#projects" class="nav-link">PROJECTS</a></li>
+      <li><a href="#skills" class="nav-link">ARSENAL</a></li>
+      <li><a href="#lab" class="nav-link">KQL LAB</a></li>
+      <li><a href="#experience" class="nav-link">EDUCATION</a></li>
+      <li><a href="#contact" class="nav-link">CONTACT</a></li>
+    </ul>
+
+    <a href="resume.html" target="_blank" class="nav-cta">
+      <i class="fas fa-file-shield"></i>
+      <span>RESUME</span>
+    </a>
+  </nav>
+
+  <!-- Main Content Wrapper -->
+  <main>
+
+    <!-- 1. HERO SECTION -->
+    <section id="hero" class="hero">
+      <div class="hero-status-pill">
+        <span class="status-beacon"></span>
+        <span>SYSTEM: NOMINAL // DEFCON 4 // AVAILABLE FOR SOC HIRE</span>
+      </div>
+
+      <h1 class="hero-title">
+        <span class="glitch-text">AJIT NAYAK</span>
+      </h1>
+
+      <div class="hero-role">
+        <span id="typewriter-text"></span>
+        <span class="typing-cursor"></span>
+      </div>
+
+      <p class="hero-bio">
+        B.Tech Computer Science graduate specializing in <strong>SOC Operations, SIEM Threat Detection (Azure Sentinel & KQL)</strong>, 
+        <strong>Active Directory Hardening</strong>, and <strong>Deep Packet Forensics</strong>. 
+        Ready to safeguard enterprise perimeters with rapid threat containment and zero-lag incident response in Bangalore or remote.
+      </p>
+
+      <div class="hero-cta-group">
+        <a href="#soc-ops" class="btn-cyber">
+          <i class="fas fa-terminal"></i>
+          <span>ENTER SOC CONSOLE</span>
+        </a>
+        <a href="#projects" class="btn-cyber btn-cyber-alt">
+          <i class="fas fa-folder-open"></i>
+          <span>VIEW LAB PROJECTS</span>
+        </a>
+        <a href="resume.html" target="_blank" class="btn-cyber btn-cyber-alt">
+          <i class="fas fa-file-pdf"></i>
+          <span>INSPECT RESUME</span>
+        </a>
+      </div>
+
+      <!-- Live SOC Telemetry HUD -->
+      <div class="soc-telemetry-hud">
+        <div class="hud-grid">
+          <div class="hud-metric-card danger">
+            <span class="hud-metric-label">Simulated Threats Blocked</span>
+            <span id="metric-threats-blocked" class="hud-metric-value">14,280</span>
+          </div>
+          <div class="hud-metric-card">
+            <span class="hud-metric-label">PCAP Packets Inspected</span>
+            <span id="metric-packets-inspected" class="hud-metric-value">1,845,200</span>
+          </div>
+          <div class="hud-metric-card accent">
+            <span class="hud-metric-label">Detection Rule Engine</span>
+            <span id="metric-rules-active" class="hud-metric-value">48 Verified Rules</span>
+          </div>
+          <div class="hud-metric-card">
+            <span class="hud-metric-label">Target Location</span>
+            <span class="hud-metric-value" style="font-size: 1.15rem; color: var(--color-primary);">Bangalore / Relocate</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. INTERACTIVE SOC OPS: TERMINAL + SIEM FEED -->
+    <section id="soc-ops">
+      <div class="section-header">
+        <span class="section-tag">// THREAT COMMAND CENTER</span>
+        <h2 class="section-title">LIVE SOC <span>OPERATIONS</span></h2>
+        <p class="section-desc">Interact with my live command CLI or observe real-time simulated telemetry feeds from honeypot perimeter sensors.</p>
+      </div>
+
+      <div class="soc-ops-container">
+        <!-- Interactive Terminal CLI -->
+        <div class="terminal-box">
+          <div class="terminal-header">
+            <div class="terminal-dots">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+            </div>
+            <span class="terminal-title">ajit@cybersec-ops: ~ (bash)</span>
+            <span style="font-size: 0.7rem; color: var(--color-accent); font-family: var(--font-mono);">[LIVE]</span>
+          </div>
+
+          <div id="terminal-output" class="terminal-body"></div>
+
+          <div class="terminal-input-line" style="padding: 10px 16px; background: rgba(0,0,0,0.5); border-top: 1px solid var(--border-color);">
+            <span class="terminal-prompt">ajit@cybersec-ops:~$</span>
+            <input type="text" id="terminal-input-cmd" class="terminal-input" placeholder="type 'help', 'whoami', 'skills', 'hire', 'projects'..." autocomplete="off" spellcheck="false">
+          </div>
+        </div>
+
+        <!-- Live SIEM Telemetry Feed -->
+        <div class="siem-feed-box">
+          <div class="siem-header">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <i class="fas fa-radar" style="color: var(--color-danger); animation: blink-beacon 1.5s infinite;"></i>
+              <span class="terminal-title">SIEM LIVE THREAT STREAM</span>
+            </div>
+            <span style="font-size: 0.7rem; color: var(--text-dim); font-family: var(--font-mono);">SOURCE: AZURE_SENTINEL</span>
+          </div>
+
+          <div id="siem-live-feed" class="siem-feed-content">
+            <!-- Dynamically populated by soc-sim.js -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. FEATURED CYBERSECURITY PROJECTS -->
+    <section id="projects">
+      <div class="section-header">
+        <span class="section-tag">// PROVEN CAPABILITIES</span>
+        <h2 class="section-title">DEFENSIVE <span>PROJECTS</span></h2>
+        <p class="section-desc">Real-world security implementations demonstrating SIEM engineering, log analysis, network forensics, and infrastructure hardening.</p>
+      </div>
+
+      <div class="projects-grid">
+        <!-- Project 1: Azure Sentinel Cloud Honeypot -->
+        <div class="project-card">
+          <div class="project-card-header">
+            <span class="project-category">SIEM & Threat Detection</span>
+            <span class="project-badge">Cloud Lab</span>
+          </div>
+          <h3 class="project-title">Azure Sentinel Cloud Honeypot & Global Threat Map</h3>
+          <p class="project-desc">
+            Deployed an exposed Windows VM honeypot in Azure to attract global adversaries. Ingested over 14,000+ brute-force logs via Log Analytics, parsed geo-coordinates with PowerShell, and visualized attack origins on interactive Sentinel workbooks.
+          </p>
+          <div class="project-tags">
+            <span class="tech-tag">Microsoft Sentinel</span>
+            <span class="tech-tag">KQL</span>
+            <span class="tech-tag">Log Analytics</span>
+            <span class="tech-tag">PowerShell</span>
+            <span class="tech-tag">EventID 4625</span>
+          </div>
+          <div class="project-footer">
+            <button class="project-link-btn open-modal-btn" data-project="sentinel">
+              <span>EXPLORE ARCHITECTURE</span>
+              <i class="fas fa-arrow-right"></i>
+            </button>
+            <a href="https://github.com/ajit028" target="_blank" class="project-link-btn" style="color: var(--text-muted);">
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 2: Active Directory Auditing -->
+        <div class="project-card">
+          <div class="project-card-header">
+            <span class="project-category">Identity & AD Defense</span>
+            <span class="project-badge">Enterprise Lab</span>
+          </div>
+          <h3 class="project-title">Active Directory Security Auditing & Hardening</h3>
+          <p class="project-desc">
+            Simulated adversary techniques including Kerberoasting, AS-REP roasting, and BloodHound attack path analysis within a multi-forest AD environment. Hardened domain policies against ticket extraction and eliminated legacy weak ciphers.
+          </p>
+          <div class="project-tags">
+            <span class="tech-tag">Active Directory</span>
+            <span class="tech-tag">BloodHound</span>
+            <span class="tech-tag">Kerberoasting</span>
+            <span class="tech-tag">Group Policy</span>
+            <span class="tech-tag">EventID 4769</span>
+          </div>
+          <div class="project-footer">
+            <button class="project-link-btn open-modal-btn" data-project="ad">
+              <span>EXPLORE AUDIT STEPS</span>
+              <i class="fas fa-arrow-right"></i>
+            </button>
+            <a href="https://github.com/ajit028" target="_blank" class="project-link-btn" style="color: var(--text-muted);">
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 3: Wireshark PCAP Forensics -->
+        <div class="project-card">
+          <div class="project-card-header">
+            <span class="project-category">Packet Forensics & IDS</span>
+            <span class="project-badge">Network Forensics</span>
+          </div>
+          <h3 class="project-title">Enterprise PCAP Malware & C2 Beaconing Forensics</h3>
+          <p class="project-desc">
+            Dissected malicious packet captures using Wireshark and tcpdump to isolate covert command & control (C2) beaconing, carved unauthorized file transmissions, and authored custom Snort IDS signatures for real-time traffic suppression.
+          </p>
+          <div class="project-tags">
+            <span class="tech-tag">Wireshark</span>
+            <span class="tech-tag">tcpdump</span>
+            <span class="tech-tag">Snort NIDS</span>
+            <span class="tech-tag">MITRE T1071</span>
+            <span class="tech-tag">DPI</span>
+          </div>
+          <div class="project-footer">
+            <button class="project-link-btn open-modal-btn" data-project="pcap">
+              <span>INSPECT FORENSICS</span>
+              <i class="fas fa-arrow-right"></i>
+            </button>
+            <a href="https://github.com/ajit028" target="_blank" class="project-link-btn" style="color: var(--text-muted);">
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 4: Automated Threat Intel Pipeline -->
+        <div class="project-card">
+          <div class="project-card-header">
+            <span class="project-category">Security Automation</span>
+            <span class="project-badge">Python Pipeline</span>
+          </div>
+          <h3 class="project-title">Automated Threat Intel & IOC Scanner Pipeline</h3>
+          <p class="project-desc">
+            Engineered a Python 3 automated triage pipeline to extract Indicators of Compromise from unformatted incident logs, query VirusTotal & AbuseIPDB APIs concurrently, and produce risk-scored alert summaries for SOC Tier 1 teams.
+          </p>
+          <div class="project-tags">
+            <span class="tech-tag">Python 3</span>
+            <span class="tech-tag">VirusTotal API</span>
+            <span class="tech-tag">AbuseIPDB</span>
+            <span class="tech-tag">Regex Parser</span>
+            <span class="tech-tag">Automation</span>
+          </div>
+          <div class="project-footer">
+            <button class="project-link-btn open-modal-btn" data-project="threatintel">
+              <span>VIEW PIPELINE</span>
+              <i class="fas fa-arrow-right"></i>
+            </button>
+            <a href="https://github.com/ajit028" target="_blank" class="project-link-btn" style="color: var(--text-muted);">
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. INTERACTIVE KQL PLAYGROUND & LAB -->
+    <section id="lab">
+      <div class="section-header">
+        <span class="section-tag">// INTERACTIVE EXPERIMENTATION</span>
+        <h2 class="section-title">KQL QUERY <span>SANDBOX</span></h2>
+        <p class="section-desc">Test real Kusto Query Language queries used in SOC investigations to extract threats from log telemetry.</p>
+      </div>
+
+      <div class="interactive-lab-section">
+        <div class="lab-tabs">
+          <button class="lab-tab active" data-query="rdp">
+            <i class="fas fa-shield-virus"></i> RDP Brute Force (Event 4625)
+          </button>
+          <button class="lab-tab" data-query="kerberoast">
+            <i class="fas fa-ticket"></i> Kerberoasting Tickets (Event 4769)
+          </button>
+          <button class="lab-tab" data-query="pcap">
+            <i class="fas fa-network-wired"></i> Snort NIDS C2 Beacons
+          </button>
+        </div>
+
+        <div class="query-editor-box">
+          <pre><code id="kql-query-code"></code></pre>
+          <button id="run-kql-btn" class="query-run-btn">
+            <i class="fas fa-play"></i> EXECUTE KQL
+          </button>
+        </div>
+
+        <div style="overflow-x: auto;">
+          <table class="query-results-table">
+            <thead id="kql-table-head"></thead>
+            <tbody id="kql-table-body"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. DEFENSIVE ARSENAL & SKILLS -->
+    <section id="skills">
+      <div class="section-header">
+        <span class="section-tag">// TACTICAL CAPABILITIES</span>
+        <h2 class="section-title">DEFENSIVE <span>ARSENAL</span></h2>
+        <p class="section-desc">Core competencies across SIEM, network forensics, threat hunting, and infrastructure defense.</p>
+      </div>
+
+      <div class="skills-container">
+        <!-- Card 1: SIEM & Log Analysis -->
+        <div class="skill-category-card">
+          <div class="skill-card-head">
+            <i class="fas fa-chart-line skill-icon"></i>
+            <h3 class="skill-card-title">SIEM & Log Analytics</h3>
+          </div>
+          <div class="skill-list">
+            <div class="skill-item">
+              <div class="skill-meta">
+                <span>Microsoft Sentinel</span>
+                <span>90%</span>
+              </div>
+              <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="90"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-meta">
+                <span>KQL (Kusto Query Language)</span>
+                <span>88%</span>
+              </div>
+              <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="88"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-meta">
+                <span>Azure Log Analytics & Sysmon</span>
+                <span>85%</span>
+              </div>
+              <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="85"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-meta">
+                <span>Splunk Basics & Search Processing</span>
+                <span>80%</span>
+              </div>
+              <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="80"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: Network Forensics & Protocols -->
+        <div class="skill-category-card">
+          <div class="skill-card-head">
+            <i class="fas fa-network-wired skill-icon"></i>
+            <h3 class="skill-card-title">Network & Forensics</h3>
+          </div>
+          <div class="skill-list">
+            <div class="skill-item">
+              <div class="skill-meta">
+                <span>Wireshark & Packet Dissection</span>
+                <span>92%</span>
+              </div>
+              <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="92"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-meta">
+                <span>tcpdump & Network Sniffing</span>
+                <span>85%</span>
+              </div>
+              <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="85"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-meta">
+                <span>Snort / Suricata NIDS Signatures</span>
+                <span>82%</span>
+              </div>
+              <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="82"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-meta">
+                <span>Nmap Recon & Port Auditing</span>
+                <span>90%</span>
+              </div>
+              <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="90"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: Threat Hunting & AD Security -->
+        <div class="skill-category-card">
+          <div class="skill-card-head">
+            <i class="fas fa-shield-virus skill-icon"></i>
+            <h3 class="skill-card-title">Threat Hunting & AD</h3>
+          </div>
+          <div class="skill-list">
+            <div class="skill-item">
+              <div class="skill-meta">
+                <span>MITRE ATT&CK Framework</span>
+                <span>90%</span>
+              </div>
+              <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="90"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-meta">
+                <span>Active Directory & GPO Hardening</span>
+                <span>85%</span>
+              </div>
+              <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="85"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-meta">
+                <span>Incident Triage & Playbooks</span>
+                <span>88%</span>
+              </div>
+              <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="88"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-meta">
+                <span>Threat Intelligence & IOCs</span>
+                <span>85%</span>
+              </div>
+              <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="85"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4: Scripting & Operating Systems -->
+        <div class="skill-category-card">
+          <div class="skill-card-head">
+            <i class="fas fa-terminal skill-icon"></i>
+            <h3 class="skill-card-title">Scripting & OS</h3>
+          </div>
+          <div class="skill-list">
+            <div class="skill-item">
+              <div class="skill-meta">
+                <span>Python 3 (Automation & APIs)</span>
+                <span>85%</span>
+              </div>
+              <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="85"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-meta">
+                <span>Linux / Bash Shell</span>
+                <span>88%</span>
+              </div>
+              <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="88"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-meta">
+                <span>PowerShell Automation</span>
+                <span>80%</span>
+              </div>
+              <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="80"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-meta">
+                <span>Windows Server & Event Logs</span>
+                <span>90%</span>
+              </div>
+              <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="90"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. EDUCATION & CAREER TIMELINE -->
+    <section id="experience">
+      <div class="section-header">
+        <span class="section-tag">// ACADEMIC & TECHNICAL MILESTONES</span>
+        <h2 class="section-title">BACKGROUND & <span>EDUCATION</span></h2>
+        <p class="section-desc">Solid computer science foundation backed by intensive hands-on cybersecurity lab rebuilding.</p>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-node"></div>
+          <div class="timeline-content">
+            <div class="timeline-date">2021 — 2025</div>
+            <h3 class="timeline-title">B.Tech in Computer Science & Engineering</h3>
+            <div class="timeline-subtitle">Govt. College of Engineering, Kalahandi | CGPA: 7.44 / 10.0</div>
+            <div class="timeline-details">
+              Graduated with an emphasis on Computer Networks, Operating Systems, Cryptography, Database Management Systems, and Information Security.
+              <ul>
+                <li>Active member of technical clubs focusing on network infrastructure and CTF challenges.</li>
+                <li>Conducted lab experiments in network packet routing, firewall configurations, and vulnerability assessments.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-node"></div>
+          <div class="timeline-content">
+            <div class="timeline-date">2025 — PRESENT</div>
+            <h3 class="timeline-title">Intensive SOC Analyst & Threat Hunter Rebuild</h3>
+            <div class="timeline-subtitle">Independent Lab Research & Practical Blue Teaming</div>
+            <div class="timeline-details">
+              Constructed full-scale enterprise defensive labs in cloud and virtualized environments.
+              <ul>
+                <li>Simulated live credential attacks (Kerberoasting, Pass-the-Hash, RDP Brute Force) and built custom SIEM detection logic in Microsoft Sentinel.</li>
+                <li>Rigorous study of MITRE ATT&CK enterprise tactics and preparation for enterprise SOC Analyst roles in Bangalore.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. RECRUITER FAST-TRACK & CONTACT TRANSMISSION -->
+    <section id="contact">
+      <div class="section-header">
+        <span class="section-tag">// INITIATE TRANSMISSION</span>
+        <h2 class="section-title">FAST-TRACK <span>RECRUITER CONTACT</span></h2>
+        <p class="section-desc">Looking to fill a SOC Analyst or Network Security role? Send a message or connect directly.</p>
+      </div>
+
+      <div class="contact-section">
+        <div class="contact-grid">
+          <div class="contact-info-col">
+            <h3>DIRECT CHANNELS</h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem;">
+              Ready for immediate hiring and relocation to Bangalore. Zero ramp-up friction on SIEM workflows, KQL detection, and network analysis.
+            </p>
+
+            <div class="contact-badge-list">
+              <a href="mailto:ajit.nayak.028@gmail.com" class="contact-badge-item">
+                <i class="fas fa-envelope contact-badge-icon"></i>
+                <div>
+                  <div style="font-size: 0.75rem; color: var(--text-dim); text-transform: uppercase;">Direct Email</div>
+                  <div style="font-family: var(--font-mono); font-size: 0.88rem;">ajit.nayak.028@gmail.com</div>
+                </div>
+              </a>
+
+              <a href="https://linkedin.com/in/ajit028" target="_blank" class="contact-badge-item">
+                <i class="fab fa-linkedin contact-badge-icon"></i>
+                <div>
+                  <div style="font-size: 0.75rem; color: var(--text-dim); text-transform: uppercase;">LinkedIn Profile</div>
+                  <div style="font-family: var(--font-mono); font-size: 0.88rem;">linkedin.com/in/ajit028</div>
+                </div>
+              </a>
+
+              <a href="https://github.com/ajit028" target="_blank" class="contact-badge-item">
+                <i class="fab fa-github contact-badge-icon"></i>
+                <div>
+                  <div style="font-size: 0.75rem; color: var(--text-dim); text-transform: uppercase;">GitHub Code Repository</div>
+                  <div style="font-family: var(--font-mono); font-size: 0.88rem;">github.com/ajit028</div>
+                </div>
+              </a>
+            </div>
+
+            <div style="margin-top: 24px;">
+              <button class="btn-cyber copy-btn" data-copy="ajit.nayak.028@gmail.com" style="width: 100%; justify-content: center;">
+                <i class="fas fa-copy"></i>
+                <span>COPY EMAIL ADDRESS</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Quick Dispatch Form -->
+          <div>
+            <form class="contact-form" action="mailto:ajit.nayak.028@gmail.com" method="POST" enctype="text/plain">
+              <div class="form-group">
+                <label class="form-label">Recruiter / Organization Name</label>
+                <input type="text" name="company" class="form-input" placeholder="e.g. Acme Corp / SOC Lead" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Target Role / Opportunity</label>
+                <input type="text" name="role" class="form-input" placeholder="e.g. SOC Analyst (L1/L2) - Bangalore" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Message / Details</label>
+                <textarea name="message" class="form-textarea" placeholder="Enter message or interview invitation details..." required></textarea>
+              </div>
+
+              <button type="submit" class="btn-cyber" style="width: 100%; justify-content: center;">
+                <i class="fas fa-paper-plane"></i>
+                <span>TRANSMIT MESSAGE</span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Interactive Project Deep-Dive Modal -->
+  <div id="cyber-modal-backdrop" class="cyber-modal-backdrop">
+    <div class="cyber-modal">
+      <div class="modal-header">
+        <h3 id="modal-title" class="modal-title">PROJECT BLUEPRINT</h3>
+        <button id="modal-close-btn" class="modal-close-btn">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div id="modal-body" class="modal-body"></div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-links">
+      <a href="https://linkedin.com/in/ajit028" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+      <a href="https://github.com/ajit028" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+      <a href="mailto:ajit.nayak.028@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+      <a href="resume.html" target="_blank"><i class="fas fa-file-pdf"></i> Resume</a>
+    </div>
+    <p>© 2026 AJIT NAYAK // ENGINEERED FOR ZERO-LAG DEFENSE // HOSTED ON GITHUB PAGES</p>
+  </footer>
+
+  <!-- Core Scripts -->
+  <script src="js/audio.js"></script>
+  <script src="js/particles.js"></script>
+  <script src="js/soc-sim.js"></script>
+  <script src="js/terminal.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

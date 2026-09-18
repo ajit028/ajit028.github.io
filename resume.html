@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ajit Nayak // Resume - SOC Analyst & Cybersecurity Specialist</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600;700&family=Orbitron:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    :root {
+      --bg: #070c18;
+      --card-bg: #0c1527;
+      --primary: #00e5ff;
+      --accent: #00ff88;
+      --text: #e2f1ff;
+      --muted: #8ba2b9;
+      --border: rgba(0, 229, 255, 0.2);
+      --font-sans: 'Inter', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --font-head: 'Orbitron', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 40px 20px;
+    }
+
+    .resume-container {
+      max-width: 850px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 40px 48px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+    }
+
+    .resume-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .action-btn {
+      background: rgba(0, 229, 255, 0.1);
+      color: var(--primary);
+      border: 1px solid var(--primary);
+      padding: 8px 16px;
+      border-radius: 4px;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: 0.2s ease;
+    }
+
+    .action-btn:hover {
+      background: var(--primary);
+      color: #000;
+      box-shadow: 0 0 15px rgba(0, 229, 255, 0.4);
+    }
+
+    header {
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 24px;
+      margin-bottom: 24px;
+    }
+
+    .name-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      font-family: var(--font-head);
+      font-size: 2.2rem;
+      color: #fff;
+      letter-spacing: 2px;
+    }
+
+    .role-badge {
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      color: var(--primary);
+      background: rgba(0, 229, 255, 0.08);
+      border: 1px solid var(--border);
+      padding: 4px 12px;
+      border-radius: 4px;
+      letter-spacing: 1px;
+    }
+
+    .contact-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .contact-bar a {
+      color: var(--text);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .contact-bar a:hover {
+      color: var(--primary);
+    }
+
+    section {
+      margin-bottom: 24px;
+    }
+
+    .section-heading {
+      font-family: var(--font-head);
+      font-size: 1.1rem;
+      color: var(--primary);
+      letter-spacing: 1.5px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      padding-bottom: 4px;
+    }
+
+    .summary-text {
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .grid-skills {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .skill-block {
+      background: rgba(0, 0, 0, 0.3);
+      padding: 12px 16px;
+      border-radius: 4px;
+      border-left: 3px solid var(--primary);
+    }
+
+    .skill-block-title {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+
+    .skill-block-desc {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .project-entry {
+      margin-bottom: 18px;
+    }
+
+    .project-header-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 4px;
+    }
+
+    .project-title-name {
+      font-weight: 700;
+      font-size: 1rem;
+      color: #fff;
+    }
+
+    .project-tech {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--accent);
+    }
+
+    ul.project-bullets {
+      padding-left: 20px;
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-top: 6px;
+    }
+
+    ul.project-bullets li {
+      margin-bottom: 4px;
+    }
+
+    .edu-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 4px;
+    }
+
+    .edu-inst {
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .edu-date {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--primary);
+    }
+
+    /* Print Styles */
+    @media print {
+      body {
+        background: #fff !important;
+        color: #000 !important;
+        padding: 0;
+      }
+      .resume-container {
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+        background: #fff !important;
+      }
+      .resume-actions {
+        display: none !important;
+      }
+      h1, .edu-inst, .project-title-name, .skill-block-title {
+        color: #000 !important;
+      }
+      .role-badge, .section-heading, .edu-date {
+        color: #0056b3 !important;
+        background: none !important;
+        border: none !important;
+      }
+      .summary-text, .skill-block-desc, ul.project-bullets, .contact-bar {
+        color: #333 !important;
+      }
+      .skill-block {
+        background: #f8f9fa !important;
+        border-left: 3px solid #0056b3 !important;
+      }
+      .contact-bar a {
+        color: #000 !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="resume-container">
+    <div class="resume-actions">
+      <button class="action-btn" onclick="window.print()">
+        <i class="fas fa-print"></i> PRINT / SAVE AS PDF
+      </button>
+      <a href="index.html" class="action-btn">
+        <i class="fas fa-arrow-left"></i> BACK TO PORTFOLIO
+      </a>
+    </div>
+
+    <header>
+      <div class="name-title">
+        <div>
+          <h1>AJIT NAYAK</h1>
+          <div style="font-size: 0.95rem; color: var(--muted); margin-top: 4px;">Targeting: Bangalore, India (Immediate Relocation) | Remote</div>
+        </div>
+        <div class="role-badge">SOC ANALYST // CYBERSECURITY</div>
+      </div>
+
+      <div class="contact-bar">
+        <span><i class="fas fa-envelope"></i> <a href="mailto:ajit.nayak.028@gmail.com">ajit.nayak.028@gmail.com</a></span>
+        <span><i class="fab fa-linkedin"></i> <a href="https://linkedin.com/in/ajit028" target="_blank">linkedin.com/in/ajit028</a></span>
+        <span><i class="fab fa-github"></i> <a href="https://github.com/ajit028" target="_blank">github.com/ajit028</a></span>
+      </div>
+    </header>
+
+    <!-- Professional Summary -->
+    <section>
+      <div class="section-heading">PROFESSIONAL SUMMARY</div>
+      <p class="summary-text">
+        Proactive, results-driven B.Tech Computer Science graduate specializing in Security Operations Center (SOC) engineering, SIEM event correlation, network packet forensics, and enterprise vulnerability management. Proven ability to architect cloud honeypots, author high-precision KQL detection queries, perform deep packet analysis in Wireshark, and audit Active Directory environments against credential attacks. Seeking an entry-level SOC Analyst / Network Security position in Bangalore with immediate availability.
+      </p>
+    </section>
+
+    <!-- Technical Skills -->
+    <section>
+      <div class="section-heading">CORE TECHNICAL SKILLS</div>
+      <div class="grid-skills">
+        <div class="skill-block">
+          <div class="skill-block-title">SIEM & Log Analytics</div>
+          <div class="skill-block-desc">Microsoft Sentinel, Azure Log Analytics, KQL (Kusto Query Language), Splunk Fundamentals, Sysmon, Windows Event Logs (4624, 4625, 4769, 7045).</div>
+        </div>
+        <div class="skill-block">
+          <div class="skill-block-title">Network Defense & Forensics</div>
+          <div class="skill-block-desc">Wireshark (Deep Packet Inspection), tcpdump, Snort/Suricata IDS/IPS Rules, Nmap Port Auditing, Zeek, TCP/IP, DNS, HTTP/S, SMB.</div>
+        </div>
+        <div class="skill-block">
+          <div class="skill-block-title">Threat Hunting & Frameworks</div>
+          <div class="skill-block-desc">MITRE ATT&CK Mapping, IOC Extraction & Triage, Incident Response Playbooks, Active Directory Hardening, BloodHound Attack Paths.</div>
+        </div>
+        <div class="skill-block">
+          <div class="skill-block-title">Scripting & Systems</div>
+          <div class="skill-block-desc">Python 3 (Security Automation, REST APIs), Bash Scripting, PowerShell, Linux (Ubuntu/Debian CLI), Windows Server Administration.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hands-on Security Projects -->
+    <section>
+      <div class="section-heading">FEATURED CYBERSECURITY PROJECTS</div>
+
+      <div class="project-entry">
+        <div class="project-header-row">
+          <span class="project-title-name">Azure Sentinel Cloud Honeypot & SIEM Threat Detection</span>
+          <span class="project-tech">Microsoft Sentinel | KQL | PowerShell | Azure</span>
+        </div>
+        <ul class="project-bullets">
+          <li>Deployed an intentionally vulnerable Windows VM in Microsoft Azure configured with open RDP ports to attract and log live worldwide threat actors.</li>
+          <li>Ingested over 14,000+ failed and successful authentication events into Log Analytics Workspace and parsed attacker geolocation data via custom PowerShell script.</li>
+          <li>Engineered automated KQL detection queries to flag brute-force threshold breaches and mapped real-time attack origins onto Sentinel visual workbooks.</li>
+        </ul>
+      </div>
+
+      <div class="project-entry">
+        <div class="project-header-row">
+          <span class="project-title-name">Active Directory Enterprise Security Auditing & Hardening</span>
+          <span class="project-tech">Active Directory | BloodHound | GPO | Kerberos</span>
+        </div>
+        <ul class="project-bullets">
+          <li>Constructed a multi-tier Active Directory domain lab to simulate credential attacks including Kerberoasting, AS-REP roasting, and pass-the-hash.</li>
+          <li>Audited privilege delegation and shortest attack paths to Domain Admin using BloodHound and SharpHound graph collector.</li>
+          <li>Remediated vulnerabilities by disabling legacy RC4-HMAC ciphers, converting vulnerable SPNs to gMSA accounts, and implementing CIS benchmark GPOs.</li>
+        </ul>
+      </div>
+
+      <div class="project-entry">
+        <div class="project-header-row">
+          <span class="project-title-name">Enterprise PCAP Malware Forensics & Snort Rule Engineering</span>
+          <span class="project-tech">Wireshark | tcpdump | Snort NIDS | MITRE T1071</span>
+        </div>
+        <ul class="project-bullets">
+          <li>Conducted deep packet inspection (DPI) on suspicious enterprise network captures to isolate command & control (C2) beaconing and unencrypted data exfiltration.</li>
+          <li>Carved malicious binary payloads transferred across TCP streams and identified malware communication intervals.</li>
+          <li>Authored custom Snort NIDS signatures matching specific malicious URI patterns to automate network-level threat alerting.</li>
+        </ul>
+      </div>
+
+      <div class="project-entry">
+        <div class="project-header-row">
+          <span class="project-title-name">Automated Threat Intelligence & IOC Extraction Engine</span>
+          <span class="project-tech">Python 3 | VirusTotal API | AbuseIPDB | Regex</span>
+        </div>
+        <ul class="project-bullets">
+          <li>Developed a modular Python automation tool that extracts IP addresses, domain names, and file hashes (MD5, SHA256) from raw security logs using regex.</li>
+          <li>Integrated multi-threaded queries against VirusTotal and AbuseIPDB API endpoints to calculate unified risk scores, reducing Tier 1 triage time by over 60%.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section>
+      <div class="section-heading">EDUCATION</div>
+      <div class="edu-row">
+        <div>
+          <div class="edu-inst">Govt. College of Engineering, Kalahandi</div>
+          <div style="font-size: 0.9rem; color: var(--muted);">Bachelor of Technology (B.Tech) in Computer Science & Engineering</div>
+        </div>
+        <div class="edu-date">2021 — 2025 | CGPA: 7.44 / 10.0</div>
+      </div>
+      <div style="font-size: 0.85rem; color: var(--muted); margin-top: 4px;">
+        Coursework: Computer Networks, Network Security, Operating Systems, Database Management Systems, Object-Oriented Programming, Cryptography.
+      </div>
+    </section>
+  </div>
+
+</body>
+</html>
