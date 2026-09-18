@@ -31,7 +31,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const typeTarget = document.getElementById('typewriter-text');
   if (typeTarget) {
     const phrases = [
-      "SOC ANALYST"
+      "SOC ANALYST",
+      "SIEM & KQL THREAT HUNTER",
+      "ACTIVE DIRECTORY SECURITY DEFENDER",
+      "NETWORK PACKET FORENSICS (WIRESHARK)",
+      "INCIDENT RESPONSE & MITRE ATT&CK EXPERT"
     ];
     let phraseIndex = 0;
     let charIndex = 0;
