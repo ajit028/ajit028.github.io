@@ -334,6 +334,17 @@ body::after {
   cursor: pointer;
 }
 
+/* HERO PHOTO */
+.hero-photo {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  border: 3px solid var(--color-primary);
+  box-shadow: 0 0 20px var(--color-primary-glow);
+  margin-bottom: 20px;
+  object-fit: cover;
+}
+
 /* MAIN LAYOUT WRAPPER */
 main {
   position: relative;
