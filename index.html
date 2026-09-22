@@ -19,8 +19,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600;700&family=Orbitron:wght@600;700;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
+  <!-- Three.js CDN for 3D Cyber Shield Animation -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
   <!-- Core Stylesheet -->
-  <link rel="stylesheet" href="css/style.css?v=4">
+  <link rel="stylesheet" href="css/style.css?v=5">
 </head>
 <body>
 
@@ -65,8 +68,11 @@
   <!-- Main Content Wrapper -->
   <main>
 
-    <!-- 1. HERO SECTION -->
+    <!-- 1. HERO SECTION WITH 3D SHIELD -->
     <section id="hero" class="hero">
+      <!-- 3D Three.js Container -->
+      <div id="hero-3d-container"></div>
+
       <div class="hero-status-pill">
         <span class="status-beacon"></span>
         <span>SYSTEM: NOMINAL // DEFCON 4 // AVAILABLE FOR SOC HIRE</span>
@@ -649,10 +655,11 @@
   </footer>
 
   <!-- Core Scripts with Cache Buster -->
-  <script src="js/audio.js?v=4"></script>
-  <script src="js/particles.js?v=4"></script>
-  <script src="js/soc-sim.js?v=4"></script>
-  <script src="js/terminal.js?v=4"></script>
-  <script src="js/main.js?v=4"></script>
+  <script src="js/audio.js?v=5"></script>
+  <script src="js/particles.js?v=5"></script>
+  <script src="js/soc-sim.js?v=5"></script>
+  <script src="js/terminal.js?v=5"></script>
+  <script src="js/three-hero.js?v=5"></script>
+  <script src="js/main.js?v=5"></script>
 </body>
 </html>
