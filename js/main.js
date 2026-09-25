@@ -27,47 +27,76 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 3. Typewriter Effect
-  const typeTarget = document.getElementById('typewriter-text');
-  if (typeTarget) {
-    const phrases = [
-      "SOC ANALYST",
+    // 3. 3D Kinetic Role Rotator with Cyber Scramble Decryption
+  const roleTarget = document.getElementById('role-3d-text');
+  if (roleTarget) {
+    const roles = [
+      "SOC ANALYST // TIER 1-2",
       "SIEM & KQL THREAT HUNTER",
-      "ACTIVE DIRECTORY SECURITY DEFENDER",
-      "NETWORK PACKET FORENSICS (WIRESHARK)",
-      "INCIDENT RESPONSE & MITRE ATT&CK EXPERT"
+      "ACTIVE DIRECTORY DEFENDER",
+      "DEEP PACKET FORENSICS (WIRESHARK)",
+      "INCIDENT RESPONSE & MITRE ATT&CK"
     ];
-    let phraseIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
+    const glyphs = "!<>-_\/[]{}—=+*^?#________01";
+    let roleIndex = 0;
 
-    function type() {
-      const current = phrases[phraseIndex];
-      if (isDeleting) {
-        typeTarget.textContent = current.substring(0, charIndex - 1);
-        charIndex--;
-      } else {
-        typeTarget.textContent = current.substring(0, charIndex + 1);
-        charIndex++;
-      }
+    function scrambleText(targetText, callback) {
+      let iteration = 0;
+      const maxIterations = targetText.length * 2;
+      const interval = setInterval(() => {
+        roleTarget.innerText = targetText
+          .split("")
+          .map((letter, index) => {
+            if (index < iteration / 2) {
+              return targetText[index];
+            }
+            if (letter === " " || letter === "/") return letter;
+            return glyphs[Math.floor(Math.random() * glyphs.length)];
+          })
+          .join("");
 
-      let typeSpeed = isDeleting ? 30 : 65;
-
-      if (!isDeleting && charIndex === current.length) {
-        typeSpeed = 2200; // Hold full text
-        isDeleting = true;
-      } else if (isDeleting && charIndex === 0) {
-        isDeleting = false;
-        phraseIndex = (phraseIndex + 1) % phrases.length;
-        typeSpeed = 400;
-      }
-
-      setTimeout(type, typeSpeed);
+        if (iteration >= maxIterations) {
+          clearInterval(interval);
+          roleTarget.innerText = targetText;
+          if (callback) callback();
+        }
+        iteration += 1;
+      }, 28);
     }
-    type();
+
+    function rotateRole() {
+      roleTarget.className = "role-3d-text flip-out";
+      setTimeout(() => {
+        roleIndex = (roleIndex + 1) % roles.length;
+        const nextRole = roles[roleIndex];
+        roleTarget.className = "role-3d-text flip-in";
+        scrambleText(nextRole, () => {
+          roleTarget.className = "role-3d-text active";
+        });
+      }, 350);
+    }
+
+    setInterval(rotateRole, 3800);
   }
 
-  // 4. Animate Skill Bars on Scroll
+  // 3b. 3D Mouse Parallax Tilt for Hero Stage
+  const heroStage = document.getElementById('hero-3d-stage');
+  const heroSection = document.getElementById('hero');
+  if (heroStage && heroSection) {
+    heroSection.addEventListener('mousemove', (e) => {
+      const rect = heroSection.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      const tiltX = -y * 18; // degrees
+      const tiltY = x * 22; // degrees
+      heroStage.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
+    });
+
+    heroSection.addEventListener('mouseleave', () => {
+      heroStage.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
+    });
+  }
+// 4. Animate Skill Bars on Scroll
   const skillObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {

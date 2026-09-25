@@ -445,41 +445,148 @@ main {
   animation: blink-beacon 1.5s infinite ease-in-out;
 }
 
-.hero-title {
-  font-family: var(--font-display);
-  font-size: clamp(2rem, 5.5vw, 3.5rem);
-  font-weight: 900;
-  letter-spacing: 2px;
-  line-height: 1.1;
-  text-transform: uppercase;
-  margin-bottom: 12px;
+/* --- 3D KINETIC HERO TYPOGRAPHY STAGE --- */
+.hero-3d-stage {
+  perspective: 1200px;
+  transform-style: preserve-3d;
+  margin: 6px auto 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.12s ease-out;
+  cursor: default;
 }
 
-.glitch-text {
+.hero-title-3d {
   position: relative;
-  display: inline-block;
-  color: var(--text-main);
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 6.5vw, 4.2rem);
+  font-weight: 900;
+  letter-spacing: 4px;
+  line-height: 1.05;
+  text-transform: uppercase;
+  margin: 0 0 14px;
+  transform-style: preserve-3d;
+  transform: translateZ(40px);
+  color: #ffffff;
+  text-shadow: 
+    0 1px 0 rgba(var(--color-primary-rgb), 0.9),
+    0 2px 0 rgba(var(--color-primary-rgb), 0.8),
+    0 3px 0 rgba(var(--color-primary-rgb), 0.7),
+    0 4px 0 rgba(var(--color-primary-rgb), 0.6),
+    0 5px 0 rgba(var(--color-primary-rgb), 0.4),
+    0 6px 1px rgba(0, 0, 0, 0.5),
+    0 0 18px rgba(var(--color-primary-rgb), 0.8),
+    0 0 38px rgba(var(--color-primary-rgb), 0.4);
 }
 
-.hero-role {
-  font-family: var(--font-mono);
-  font-size: clamp(0.95rem, 2.2vw, 1.3rem);
+.hero-title-3d .text-3d-layer.glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   color: var(--color-primary);
-  margin-bottom: 14px;
+  opacity: 0.6;
+  filter: blur(10px);
+  pointer-events: none;
+  transform: translateZ(10px);
+}
+
+/* 3D Hologram Role Badge Container */
+.hero-role-3d-card {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 8px 24px;
+  background: rgba(10, 15, 28, 0.8);
+  border: 1px solid rgba(var(--color-primary-rgb), 0.45);
+  border-radius: 8px;
+  backdrop-filter: blur(12px);
+  box-shadow: 
+    0 12px 30px rgba(0, 0, 0, 0.7),
+    inset 0 0 20px rgba(var(--color-primary-rgb), 0.15),
+    0 0 15px rgba(var(--color-primary-rgb), 0.3);
+  transform-style: preserve-3d;
+  transform: translateZ(50px);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.hero-role-3d-card:hover {
+  border-color: var(--color-primary);
+  box-shadow: 
+    0 14px 38px rgba(0, 0, 0, 0.85),
+    inset 0 0 25px rgba(var(--color-primary-rgb), 0.25),
+    0 0 25px rgba(var(--color-primary-rgb), 0.6);
+}
+
+.role-3d-bracket {
+  font-family: var(--font-mono);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  text-shadow: 0 0 10px var(--color-accent);
+  opacity: 0.9;
+}
+
+.role-3d-viewport {
+  position: relative;
+  overflow: hidden;
+  height: 1.6em;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
-  text-shadow: 0 0 8px var(--color-primary-glow);
+  min-width: 300px;
 }
 
-.typing-cursor {
+.role-3d-text {
+  font-family: var(--font-mono);
+  font-size: clamp(0.95rem, 2.2vw, 1.25rem);
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--color-primary);
+  text-transform: uppercase;
+  text-shadow: 
+    0 0 10px var(--color-primary-glow),
+    0 0 22px rgba(var(--color-primary-rgb), 0.7);
   display: inline-block;
-  width: 8px;
-  height: 1em;
-  background: var(--color-primary);
-  animation: blink-cursor 0.9s infinite;
-  vertical-align: middle;
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.35s ease;
+  transform-style: preserve-3d;
+}
+
+.role-3d-text.flip-out {
+  transform: rotateX(-90deg) translateZ(20px);
+  opacity: 0;
+}
+
+.role-3d-text.flip-in {
+  transform: rotateX(90deg) translateZ(20px);
+  opacity: 0;
+}
+
+.role-3d-text.active {
+  transform: rotateX(0deg) translateZ(0);
+  opacity: 1;
+}
+
+.role-3d-scanline {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(var(--color-primary-rgb), 0.35), transparent);
+  animation: holo-scanline 3.2s infinite linear;
+  pointer-events: none;
+}
+
+@keyframes holo-scanline {
+  0% { left: -60%; }
+  100% { left: 160%; }
 }
 
 .hero-bio {
