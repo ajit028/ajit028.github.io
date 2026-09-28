@@ -53,5 +53,5 @@ portfolio/
 - **Name:** Ajit Nayak
 - **Role:** SOC Analyst / Cybersecurity Specialist
 - **Email:** [ajit.nayak.028@gmail.com](mailto:ajit.nayak.028@gmail.com)
-- **LinkedIn:** [linkedin.com/in/ajit028](https://linkedin.com/in/ajit028)
+- **LinkedIn:** [linkedin.com/in/ajit028](https://www.linkedin.com/in/ajit028)
 - **GitHub:** [github.com/ajit028](https://github.com/ajit028)

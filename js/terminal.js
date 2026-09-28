@@ -80,7 +80,7 @@ Objective:   Defending enterprise infrastructures, investigating threats with SI
       contact: () => `
 <span style="color: var(--color-primary); font-weight: bold;">[TRANSMISSION CHANNELS]</span>
   • Email:    <a href="mailto:ajit.nayak.028@gmail.com" style="color: var(--color-primary);">ajit.nayak.028@gmail.com</a>
-  • LinkedIn: <a href="https://linkedin.com/in/ajit028" target="_blank" style="color: var(--color-primary);">linkedin.com/in/ajit028</a>
+  • LinkedIn: <a href="https://www.linkedin.com/in/ajit028" target="_blank" style="color: var(--color-primary);">linkedin.com/in/ajit028</a>
   • GitHub:   <a href="https://github.com/ajit028" target="_blank" style="color: var(--color-primary);">github.com/ajit028</a>
 `,
       hire: () => `
