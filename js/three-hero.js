@@ -1,6 +1,5 @@
 /**
- * Three.js 3D Rotating Cyber Shield + Floating Holographic Ring
- * Creates a dramatic 3D hero background element
+ * Three.js 3D Rotating Cyber Shield + Interactive 3D Card Tilt Engine
  */
 
 (function() {
@@ -8,15 +7,14 @@
   if (!container || typeof THREE === 'undefined') return;
 
   const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(60, container.clientWidth / container.clientHeight, 0.1, 100);
-  camera.position.z = 5;
+  const camera = new THREE.PerspectiveCamera(55, container.clientWidth / container.clientHeight, 0.1, 100);
+  camera.position.z = 4.2;
 
   const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
   renderer.setSize(container.clientWidth, container.clientHeight);
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
   container.appendChild(renderer.domElement);
 
-  // Read theme color
   function getThemeColor() {
     const s = getComputedStyle(document.documentElement);
     const rgb = s.getPropertyValue('--color-primary-rgb').trim();
@@ -29,59 +27,59 @@
 
   let themeColor = getThemeColor();
 
-  // --- SHIELD WIREFRAME (Icosahedron) ---
-  const shieldGeo = new THREE.IcosahedronGeometry(1.6, 1);
+  // --- OUTER SHIELD WIREFRAME ---
+  const shieldGeo = new THREE.IcosahedronGeometry(1.65, 1);
   const shieldMat = new THREE.MeshBasicMaterial({
     color: themeColor,
     wireframe: true,
     transparent: true,
-    opacity: 0.25
+    opacity: 0.4
   });
   const shield = new THREE.Mesh(shieldGeo, shieldMat);
   scene.add(shield);
 
-  // --- INNER GLOW SPHERE ---
-  const glowGeo = new THREE.IcosahedronGeometry(1.2, 2);
+  // --- INNER HOLOGRAPHIC CORE ---
+  const glowGeo = new THREE.OctahedronGeometry(1.0, 2);
   const glowMat = new THREE.MeshBasicMaterial({
     color: themeColor,
     wireframe: true,
     transparent: true,
-    opacity: 0.08
+    opacity: 0.2
   });
   const glow = new THREE.Mesh(glowGeo, glowMat);
   scene.add(glow);
 
   // --- ORBITING RING 1 ---
-  const ring1Geo = new THREE.TorusGeometry(2.2, 0.015, 16, 100);
+  const ring1Geo = new THREE.TorusGeometry(2.3, 0.02, 16, 100);
   const ring1Mat = new THREE.MeshBasicMaterial({
     color: themeColor,
     transparent: true,
-    opacity: 0.35
+    opacity: 0.5
   });
   const ring1 = new THREE.Mesh(ring1Geo, ring1Mat);
-  ring1.rotation.x = Math.PI / 2.4;
+  ring1.rotation.x = Math.PI / 2.5;
   scene.add(ring1);
 
   // --- ORBITING RING 2 ---
-  const ring2Geo = new THREE.TorusGeometry(2.6, 0.01, 16, 120);
+  const ring2Geo = new THREE.TorusGeometry(2.8, 0.015, 16, 120);
   const ring2Mat = new THREE.MeshBasicMaterial({
     color: themeColor,
     transparent: true,
-    opacity: 0.2
+    opacity: 0.3
   });
   const ring2 = new THREE.Mesh(ring2Geo, ring2Mat);
-  ring2.rotation.x = Math.PI / 1.6;
+  ring2.rotation.x = Math.PI / 1.5;
   ring2.rotation.y = Math.PI / 4;
   scene.add(ring2);
 
-  // --- FLOATING DATA DOTS ---
-  const dotsCount = 60;
+  // --- FLOATING CYBER DATA PARTICLES ---
+  const dotsCount = 80;
   const dotsGeo = new THREE.BufferGeometry();
   const dotsPos = new Float32Array(dotsCount * 3);
   for (let i = 0; i < dotsCount; i++) {
     const theta = Math.random() * Math.PI * 2;
     const phi = Math.acos(2 * Math.random() - 1);
-    const r = 2.0 + Math.random() * 1.2;
+    const r = 2.0 + Math.random() * 1.5;
     dotsPos[i*3]     = r * Math.sin(phi) * Math.cos(theta);
     dotsPos[i*3 + 1] = r * Math.sin(phi) * Math.sin(theta);
     dotsPos[i*3 + 2] = r * Math.cos(phi);
@@ -89,15 +87,15 @@
   dotsGeo.setAttribute('position', new THREE.BufferAttribute(dotsPos, 3));
   const dotsMat = new THREE.PointsMaterial({
     color: themeColor,
-    size: 0.04,
+    size: 0.045,
     transparent: true,
-    opacity: 0.6,
+    opacity: 0.75,
     sizeAttenuation: true
   });
   const dots = new THREE.Points(dotsGeo, dotsMat);
   scene.add(dots);
 
-  // --- MOUSE INTERACTION ---
+  // --- MOUSE PARALLAX ---
   let mouseX = 0, mouseY = 0;
   document.addEventListener('mousemove', (e) => {
     mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
@@ -111,44 +109,57 @@
     requestAnimationFrame(animate);
     const t = clock.getElapsedTime();
 
-    // Update theme color every 2 seconds
-    if (Math.floor(t) % 2 === 0) {
-      themeColor = getThemeColor();
-      shieldMat.color.copy(themeColor);
-      glowMat.color.copy(themeColor);
-      ring1Mat.color.copy(themeColor);
-      ring2Mat.color.copy(themeColor);
-      dotsMat.color.copy(themeColor);
-    }
+    themeColor = getThemeColor();
+    shieldMat.color.copy(themeColor);
+    glowMat.color.copy(themeColor);
+    ring1Mat.color.copy(themeColor);
+    ring2Mat.color.copy(themeColor);
+    dotsMat.color.copy(themeColor);
 
-    // Shield rotation
-    shield.rotation.x = t * 0.15 + mouseY * 0.3;
-    shield.rotation.y = t * 0.2 + mouseX * 0.3;
+    shield.rotation.x = t * 0.18 + mouseY * 0.4;
+    shield.rotation.y = t * 0.25 + mouseX * 0.4;
 
-    // Inner glow counter-rotation
-    glow.rotation.x = -t * 0.1;
-    glow.rotation.y = -t * 0.15;
+    glow.rotation.x = -t * 0.15;
+    glow.rotation.y = -t * 0.2;
 
-    // Pulsing shield opacity
-    shieldMat.opacity = 0.2 + Math.sin(t * 1.5) * 0.08;
-    glowMat.opacity = 0.06 + Math.sin(t * 2) * 0.03;
+    shieldMat.opacity = 0.35 + Math.sin(t * 2) * 0.1;
+    glowMat.opacity = 0.15 + Math.sin(t * 2.5) * 0.05;
 
-    // Ring orbits
-    ring1.rotation.z = t * 0.3;
-    ring2.rotation.z = -t * 0.2;
+    ring1.rotation.z = t * 0.35;
+    ring2.rotation.z = -t * 0.25;
 
-    // Dots slow rotation
-    dots.rotation.y = t * 0.05;
-    dots.rotation.x = t * 0.03;
+    dots.rotation.y = t * 0.08;
+    dots.rotation.x = t * 0.04;
 
     renderer.render(scene, camera);
   }
   animate();
 
-  // --- RESIZE HANDLING ---
   window.addEventListener('resize', () => {
     camera.aspect = container.clientWidth / container.clientHeight;
     camera.updateProjectionMatrix();
     renderer.setSize(container.clientWidth, container.clientHeight);
+  });
+
+  // --- 3D CARD TILT EFFECT FOR CARDS & CONTAINERS ---
+  document.addEventListener('DOMContentLoaded', () => {
+    const tiltCards = document.querySelectorAll('.project-card, .skill-category-card, .terminal-box, .siem-feed-box, .interactive-lab-section');
+    tiltCards.forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = ((y - centerY) / centerY) * -6;
+        const rotateY = ((x - centerX) / centerX) * 6;
+
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)';
+      });
+    });
   });
 })();
